@@ -1,3 +1,4 @@
+import re
 import typing as ty
 from faramwok.doc_parser import DocStringHandler
 
@@ -6,6 +7,7 @@ class RouteHandler:
         self.path = path
         self.handler = handler
         self.aux_handler = DocStringHandler.from_handler_doc(handler.__doc__)
+        self.path_regex = re.compile(path)
 
     def __repr__(self):
         return f"<RouteHandler path={self.path} handler={self.handler}>"
