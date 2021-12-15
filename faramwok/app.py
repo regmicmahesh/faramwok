@@ -19,7 +19,7 @@ class Application:
 
     def match(self, path):
         for route in self.routes:
-            m = re.match(route.path, path)
+            m = route.path_regex.match(path)
             if m:
                 return route
         return None
