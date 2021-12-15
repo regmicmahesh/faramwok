@@ -29,6 +29,9 @@ jobs:
       run: python -m poetry config virtualenvs.in-project true
     - name: View poetry version
       run: poetry --version
+    - name: Add flake8 as dependency for linting
+      run : |
+        python -m poetry add flake8
     - name: Install dependencies
       run: |
         python -m poetry install
